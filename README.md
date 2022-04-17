@@ -2,14 +2,17 @@
 This Repository contains unoffical Arduino Files to run the 2 Key Keyboard from FalbaTech.
 
 ## Installation
- - Install the offical Arduino IDE from the [Website](https://www.arduino.cc/en/software) or the [PlatformIO IDE](https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide) Extension for VS Code
- - Run `git submodule update --init --recursive` to download FastLED Library
- - In the Arduino IDE include the include Folder, PlatformIO IDE does this automatically
- - Copy the Content of any Mode in the modes Folder into the src/falbatech_2key.ino File (default is singleColor, Red)
+ - Install the offical Arduino IDE from the [Website](https://www.arduino.cc/en/software)
+ - Open one of the .ino Files in the modes Folder with the IDE
+ - Include the `Keyboard` and `FastLED` Libraries
+ - In Tools, set the Board to `Arduino Micro`
+ - Set the Port to your Keyboard
+ - Set the Programmer to `AVRISP mkII`
  - Edited the `Color` or `Key To Char` Settings as desired
- - While the Keyboard is connected, build and upload the Code (Arduino IDE: Ctrl+U || PlatformIO IDE: Ctrl+Alt+U)
+ - While the Keyboard is connected, build and upload the Code (Ctrl+U)
 
  ## More Info
+ - The Project can also be used in the PlatformIO IDE, just copy the desired Mode into src/falbatech_2key.ino
  - The Keyboard runs at a 1000 Hz Polling Rate as close as it can get, you can remove the delay(1) in the loop Funtion to speed it up
  - The Single Color Mod is in theory the fastest, as it does not need to update the LEDs
  - The Board will be used as an Arduino Micro, you can use the Arduino Leonardo as well, but it does not allow the TX/RX LEDs to turn off
