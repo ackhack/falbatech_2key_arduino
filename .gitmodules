@@ -1,0 +1,4 @@
+[submodule "include/FastLED"]
+	path = include/FastLED
+	url = https://github.com/FastLED/FastLED.git
+	branch = master
