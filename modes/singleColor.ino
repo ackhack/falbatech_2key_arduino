@@ -2,7 +2,7 @@
 #include "FastLED.h"
 
 // Color Settings
-const uint8_t Color = CRGB::Red;
+const int Color = 0;
 const uint8_t Brightness = 200;
 
 // Key To Char Bindings
@@ -29,7 +29,7 @@ void setup()
     // Initialize FastLED
     FastLED.addLeds<WS2811, 6, GRB>(leds, 2).setCorrection(TypicalLEDStrip);
     FastLED.setBrightness(Brightness);
-    FillLEDsFromPaletteColors(Color);
+    FillLEDsFromPaletteColors();
     FastLED.show();
 
     // Initialize Pins
@@ -74,11 +74,10 @@ void proccessButtons()
     }
 }
 
-void FillLEDsFromPaletteColors(uint8_t colorIndex)
+void FillLEDsFromPaletteColors()
 {
     for (int i = 0; i < 2; i++)
     {
-        leds[i] = ColorFromPalette(RainbowColors_p, colorIndex, Brightness, LINEARBLEND);
-        colorIndex += 3;
+        leds[i] = ColorFromPalette(RainbowColors_p, Color, Brightness, LINEARBLEND);
     }
 }

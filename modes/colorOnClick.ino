@@ -2,8 +2,8 @@
 #include "FastLED.h"
 
 // Color Settings
-const uint8_t ColorLeft = CRGB::Red;
-const uint8_t ColorRight = CRGB::Red;
+const int ColorLeft = 0
+const int ColorRight = 0;
 const uint8_t Brightness = 200;
 
 // Key To Char Bindings

@@ -2,10 +2,8 @@
 #include "FastLED.h"
 
 // Color Settings
-const int GradientChange = 1;
-const int Speed = 10;
+const int Color = 0;
 const uint8_t Brightness = 200;
-int currColor = 0;
 
 // Key To Char Bindings
 const char LeftKey = 'z';
@@ -18,7 +16,6 @@ const int keyRightPin = 3;
 const int keyMiddlePin = 16;
 
 CRGB leds[2];
-int currIteration = 0;
 
 void setup()
 {
@@ -31,6 +28,9 @@ void setup()
 
     // Initialize FastLED
     FastLED.addLeds<WS2811, 6, GRB>(leds, 2).setCorrection(TypicalLEDStrip);
+    FastLED.setBrightness(Brightness);
+    FillLEDsFromPaletteColors();
+    FastLED.show();
 
     // Initialize Pins
     pinMode(keyLeftPin, INPUT_PULLUP);
@@ -42,16 +42,7 @@ void setup()
 
 void loop()
 {
-    // Update LEDs
-    if (currIteration >= Speed)
-    {
-        currIteration = 0;
-        FillLEDsFromPaletteColors();
-        FastLED.show();
-    }
-
     proccessButtons();
-    currIteration++;
     delay(1);
 }
 
@@ -87,7 +78,6 @@ void FillLEDsFromPaletteColors()
 {
     for (int i = 0; i < 2; i++)
     {
-        leds[i] = ColorFromPalette(RainbowColors_p, currColor, Brightness, LINEARBLEND);
+        leds[i] = ColorFromPalette(RainbowColors_p, Color, Brightness, LINEARBLEND);
     }
-    currColor += GradientChange;
 }
