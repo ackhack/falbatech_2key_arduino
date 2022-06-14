@@ -2,7 +2,7 @@
 #include "FastLED.h"
 
 // Color Settings
-const int ColorLeft = 0
+const int ColorLeft = 0;
 const int ColorRight = 0;
 const uint8_t Brightness = 200;
 
