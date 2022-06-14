@@ -2,7 +2,8 @@
 #include "FastLED.h"
 
 // Color Settings
-const int Color = 0;
+const int ColorLeft = 0
+const int ColorRight = 0;
 const uint8_t Brightness = 200;
 
 // Key To Char Bindings
@@ -28,8 +29,8 @@ void setup()
 
     // Initialize FastLED
     FastLED.addLeds<WS2811, 6, GRB>(leds, 2).setCorrection(TypicalLEDStrip);
-    FastLED.setBrightness(Brightness);
-    FillLEDsFromPaletteColors();
+    leds[0] = CRGB::Black;
+    leds[1] = CRGB::Black;
     FastLED.show();
 
     // Initialize Pins
@@ -44,6 +45,7 @@ void setup()
 void loop()
 {
     proccessButtons();
+    delay(1);
 }
 
 void proccessButtons()
@@ -51,21 +53,27 @@ void proccessButtons()
     if (digitalRead(keyLeftPin) == 0)
     {
         Keyboard.press(0);
+        leds[0] = ColorFromPalette(RainbowColors_p, ColorLeft, Brightness, LINEARBLEND);
+        FastLED.show();
     }
     else
     {
         Keyboard.release(0);
+        leds[0] = CRGB::Black;
+        FastLED.show();
     }
-
     if (digitalRead(keyRightPin) == 0)
     {
         Keyboard.press(1);
+        leds[1] = ColorFromPalette(RainbowColors_p, ColorRight, Brightness, LINEARBLEND);
+        FastLED.show();
     }
     else
     {
         Keyboard.release(1);
+        leds[1] = CRGB::Black;
+        FastLED.show();
     }
-
     if (digitalRead(keyMiddlePin) == 0)
     {
         Keyboard.press(2);
@@ -73,15 +81,5 @@ void proccessButtons()
     else
     {
         Keyboard.release(2);
-    }
-
-    Keyboard.sendReport();
-}
-
-void FillLEDsFromPaletteColors()
-{
-    for (int i = 0; i < 2; i++)
-    {
-        leds[i] = ColorFromPalette(RainbowColors_p, Color, Brightness, LINEARBLEND);
     }
 }

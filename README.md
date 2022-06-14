@@ -13,7 +13,6 @@ This Repository contains unoffical Arduino Files to run the 2 Key Keyboard from 
 
  ## More Info
  - The Project can also be used in the PlatformIO IDE, just copy the desired Mode into src/falbatech_2key.ino
- - The Keyboard runs at max Polling Rate, which is based on my Testing around 500-300Hz
  - The Single Color Mod is in theory the fastest, as it does not need to update the LEDs
  - The Board will be used as an Arduino Micro, you can use the Arduino Leonardo as well, but it does not allow the TX/RX LEDs to turn off
  - The Colors are represent as an integer value from 0 to 255
