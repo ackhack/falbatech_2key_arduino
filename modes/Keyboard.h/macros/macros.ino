@@ -5,7 +5,7 @@
 const int Color = 0;
 const uint8_t Brightness = 200;
 
-// Macro Bindings (https://www.arduino.cc/en/Reference/KeyboardModifiers)
+// Macro Bindings (https://www.arduino.cc/reference/en/language/functions/usb/keyboard/keyboardmodifiers/)
 const int LeftKey[][2] = {{0x80, 0x61}, {0x80, 0x63}}; //Ctrl+A, Ctrl+C
 const int RightKey[][2] = {{0x80, 0x76}}; //Ctrl+V
 const int MiddleKey[][2] = {{0xB1}}; //Esc
