@@ -52,7 +52,6 @@ void loop()
 
     proccessButtons();
     currIteration++;
-    delay(1);
 }
 
 void proccessButtons()

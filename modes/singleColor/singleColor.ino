@@ -43,7 +43,6 @@ void setup()
 void loop()
 {
     proccessButtons();
-    delay(1);
 }
 
 void proccessButtons()
