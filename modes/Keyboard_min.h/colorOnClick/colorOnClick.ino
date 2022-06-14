@@ -82,4 +82,6 @@ void proccessButtons()
     {
         Keyboard.release(2);
     }
+
+    Keyboard.sendReport();
 }
