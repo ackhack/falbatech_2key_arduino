@@ -93,5 +93,5 @@ void FillLEDsFromPaletteColors()
     {
         leds[i] = ColorFromPalette(RainbowColors_p, currColor, Brightness, LINEARBLEND);
     }
-    currColor += GradientChange;
+    currColor = (currColor + GradientChange) % 255;
 }
